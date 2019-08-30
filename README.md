@@ -19,7 +19,7 @@ Light way domotic with MQTT &amp; Zigbee
 
 # Supported devices 
 
-_ Broker
+= Broker
 => Shelly HT
 
 => Shelly 2.5
