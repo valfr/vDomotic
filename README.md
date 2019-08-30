@@ -1,4 +1,4 @@
-# vDomotic
+# vDomotic (work in progress)
 Light way domotic with MQTT &amp; Zigbee
 
 # broker.py
