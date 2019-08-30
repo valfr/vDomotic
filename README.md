@@ -19,7 +19,7 @@ Light way domotic with MQTT &amp; Zigbee
 
 # Supported devices 
 
-# Broker
+_ Broker
 => Shelly HT
 
 => Shelly 2.5
@@ -31,6 +31,6 @@ Light way domotic with MQTT &amp; Zigbee
 => Xiaomi Motion Sensor v2
 
 
-# Worker
+_ Worker
 => Shelly 2.5
 
