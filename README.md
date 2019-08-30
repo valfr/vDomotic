@@ -3,6 +3,7 @@ Light way domotic with MQTT &amp; Zigbee
 
 broker.py
 => running as daemon
+
 => catch all MQTT request
 => generate action for sensors
 
