@@ -1,5 +1,5 @@
 # vDomotic (work in progress)
-Light way domotic with MQTT &amp; Zigbee
+Light way domotic with MQTT &amp; Zigbee &amp; Wifi
 
 # broker.py
 => running as daemon
