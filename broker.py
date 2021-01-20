@@ -25,7 +25,6 @@ global shellyCompteur
 
 def on_connect(client, userdata, flags, rc):
 	connectionMsg = "VALFR BROKER Connected with result code "+str(rc)+"\n"
-	#print(connectionMsg)
 	journal.write(connectionMsg)
 	client.subscribe("#")
 	subscribeMsg = "VALFR BROKER subscribe to #\n"
@@ -53,10 +52,6 @@ def on_message(client, userdata, message):
 	global realtimeHUEwhite
 	global shellyHistory
 	global shellyCompteur
-	#print("received message =",str(message.payload.decode("utf-8")))
-	#print("message topic=",message.topic)
-	#print("message qos=",message.qos)
-	#print("message retain flag=",message.retain)
 	#LOG-FILE-RAM
 	#fichierLog = open(pathLogs+"broker.txt", "a")
 	#fichierLog.write(datetime.today().strftime('%Y-%m-%d %H:%M:%S') + "$BROKER$" + message.topic + "$" + str(message.payload.decode("utf-8")) + "\n")
@@ -69,8 +64,6 @@ def on_message(client, userdata, message):
 	for deviceID, deviceName in devicesSHELLYht.items():
 		if message.topic == "shellies/"+deviceID+"/sensor/temperature":
 			shellyHistory = str(message.payload.decode("utf-8"))
-			#shellyCompteur = shellyHistory
-            #shellyTempOnly = shellyHistory
 			fichier = open(pathData+deviceID+"_temperature.txt", "w")
 			fichier.write(str(message.payload.decode("utf-8")))
 			fichier.close()
@@ -81,37 +74,17 @@ def on_message(client, userdata, message):
 			fichier.write(str(message.payload.decode("utf-8")))
 			fichier.close()
 		if message.topic == "shellies/"+deviceID+"/sensor/battery":
-			#fichier = open(pathData+deviceID+"_battery.txt", "w")
-			#fichier.write(str(message.payload.decode("utf-8")))
-			#fichier.close()
 			fichier = open(pathData+deviceID+"_datetime.txt", "w")
 			fichier.write(datetime.today().strftime('%Y-%m-%d %H:%M:%S'))
 			fichier.close()
 			shellyHistory = shellyHistory + " - " + str(message.payload.decode("utf-8"))
 			fichier = open(pathData+deviceID+"_history.txt", "a")
-            #fichier = open(pathData+"temp-led.txt", "a")
 			fichier.write(datetime.today().strftime('%Y-%m-%d %H:%M:%S') + " - " + shellyHistory + "\n")
 			fichier.close()
-			#shellyCompteur = shellyCompteur + "-" + datetime.today().strftime('%d/%m %H:%M')
-			#fichier = open(pathData+deviceID+"_temperature.txt", "w")
-			#fichier.write(shellyCompteur)
-			#fichier.close()
 			fichierLog = open(pathLogs+"broker.txt", "a")
 			fichierLog.write("Work$SHELLY$" + shellyHistory+ "\n")
 			fichierLog.close()
 			shellyHistory = ""
-			#shellyCompteur = ""
-            #shellyCompteur = shellyCompteur + "-" + datetime.today().strftime('%d/%m %H:%M')
-            #fichier = open(pathData+deviceID+"_temperature.txt", "w")
-            #fichier.write(shellyCompteur)
-            #fichier.close()
-            #fichierLog = open(pathLogs+"broker.txt", "a")
-            #fichierLog.write("Work$SHELLY$" + shellyCompteur+ "\n")
-            #fichierLog.close()
-            #url_string = 'http://192.168.0.83:8086/write?db=chauffage'
-            #data_string = 'temperature,sonde='+deviceID+' value='+shellyTempOnly
-            #r = requests.post(url_string, data=data_string)
-            #shellyCompteur = ""
 	#SHELLIES-DoorW
 	for deviceID, deviceName in devicesSHELLYdw.items():
 		if message.topic == "shellies/"+deviceID+"/sensor/state":
@@ -297,8 +270,6 @@ devicesHUEwhite = dict()
 realtimeHUEwhite = dict()
 pathLogs = "/mnt/ram/"
 pathData = "/mnt/ram/"
-#pathLogs = "/home/logs/" 
-#pathData = "/home/data/iot/" 
 
 startupMsg = "VALFR BROKER v2.3 starting up at " + datetime.today().strftime('%Y-%m-%d %H:%M:%S') + "\n"
 journal.write(startupMsg)
