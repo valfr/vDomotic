@@ -23,7 +23,9 @@ Broker
 
 => Shelly HT
 
-=> Shelly 2.5
+=> Shelly 2.5 - Roller or Relay
+
+=> Shelly Door Sensor
 
 => Xiaomi Door Sensor
 
@@ -31,8 +33,9 @@ Broker
 
 => Xiaomi Motion Sensor v2
 
+=> Philips HUE lights
 
 Worker
 
-=> Shelly 2.5
+=> Shelly 2.5 - Roller
 
