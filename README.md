@@ -3,6 +3,9 @@ Light way domotic with MQTT &amp; Zigbee &amp; Wifi
 
 Using local python script to manage all direct interaction between IOT Xiaomi & Shelly & Philips HUE
 
+Last update : 2022-04-09
+
+
 ## best configuration
 Raspberry Pi with Zigbee dongle
 1. Zigbee2mqtt
