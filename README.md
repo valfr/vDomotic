@@ -12,49 +12,39 @@ Raspberry Pi with Zigbee dongle
  
 
 
-# broker.py
+## broker.py
 This script is acting to distribute actions directly between devices.
 
 You can acitvate a relay or turn on a light with this local python script (no need for external connectivity).
 
 Work only with local Wifi (for shellies) + Zigbee (for Xiamo & HUE)
 
-=> running as daemon
-
-=> catch all MQTT request
-
-=> generate action for sensors
-
-=> output state can be write into file to request it with external website
++ running as daemon
++ catch all MQTT request
++ generate action for sensors
++ output state can be write into file to request it with external website
 
 
-# worker.py
+## worker.py
 
-=> running as daemon clock
-
-=> launch action (minimum schedule is 1 second)
++ running as daemon clock
++ launch action (minimum schedule is 1 second)
 
 
 
-# Supported devices 
+## Supported devices 
 
 Broker
 
-=> Shelly HT
-
-=> Shelly 2.5 - Roller or Relay
-
-=> Shelly Door Sensor
-
-=> Xiaomi Door Sensor
-
-=> Xiaomi Motion Sensor v1
-
-=> Xiaomi Motion Sensor v2
-
-=> Philips HUE lights
++ Shelly HT
++ Shelly 2.5 - Roller or Relay
++ Shelly Door Sensor
++ Xiaomi Door Sensor
++ Xiaomi Motion Sensor v1
++ Xiaomi Motion Sensor v2
++ Philips HUE lights
 
 Worker
 
-=> Shelly 2.5 - Roller
++ Shelly 2.5 - Roller
 
